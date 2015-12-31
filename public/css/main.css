@@ -8,38 +8,47 @@ html body {
   height: 100vh; }
   html body .btn:hover, html body .btn:active, html body .btn:focus {
     outline: none; }
-  html body .user-module {
+  html body header {
     background-color: #fff;
     border-bottom: 1px solid #e8e8e8;
-    padding: 10px;
     width: 100%;
     min-height: 57px; }
-    html body .user-module #user-form {
-      width: 95%;
-      margin: 0 auto;
-      text-align: center; }
-      html body .user-module #user-form #display-name {
-        position: relative;
-        top: 2px;
-        max-width: 250px;
-        display: inline-block; }
-      html body .user-module #user-form .btn {
-        margin-left: 5px; }
+  html body .user-module {
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 240px;
+    height: 100vh;
+    position: fixed; }
+    html body .user-module #user-form #display-name {
+      position: relative;
+      top: 2px;
+      max-width: 175px;
+      display: inline-block; }
+    html body .user-module #user-form .btn {
+      margin-left: 2px; }
+    html body .user-module .user-list li {
+      padding: 10px;
+      border-bottom: 1px solid #e8e8e8; }
   html body .wrapper {
+    display: none;
     height: 90vh;
     width: 100%;
-    max-width: 1024px;
+    max-width: 920px;
     position: relative;
     left: 50%;
-    transform: translateX(-50%); }
+    transform: translateX(-50%);
+    margin-top: 10px; }
     html body .wrapper .message-wrapper {
       overflow: auto;
-      max-height: 80vh; }
+      height: 80vh;
+      border: 1px solid #e8e8e8;
+      border-bottom: none; }
       html body .wrapper .message-wrapper #messages {
-        padding-top: 20px;
-        padding-bottom: 20px; }
+        padding: 20px; }
         html body .wrapper .message-wrapper #messages li {
           padding: 5px 10px; }
+          html body .wrapper .message-wrapper #messages li span {
+            font-weight: 900; }
         html body .wrapper .message-wrapper #messages li:nth-of-type(odd) {
           background-color: #f2f2f2; }
         html body .wrapper .message-wrapper #messages .user-status {
@@ -53,10 +62,11 @@ html body {
       width: 100%;
       position: fixed;
       bottom: 0;
+      border: 1px solid #e8e8e8;
       background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.75) 50%, white 100%);
-      padding-top: 50px;
+      padding-top: 20px;
       padding-bottom: 20px;
-      margin-left: 10px; }
+      padding-left: 10px; }
       html body .wrapper .enter-message #messagebox {
         width: 90%;
         margin-right: 1%;

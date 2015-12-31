@@ -5,6 +5,7 @@ $normal: 'Roboto', 'Helvetica', Arial, sans-serif;
 //colors 
 $green : #59CB59;
 $red : #C24977;
+$shade: #e8e8e8;
 
 @mixin font($type : $normal, $size : 1.3em, $weight : 400, $color : #000) {
 	color: $color;
@@ -22,45 +23,67 @@ html {
 		.btn:hover, .btn:active, .btn:focus {
 			outline: none;
 		}
-		.user-module {
+		
+		header {
 			background-color: #fff;
-			border-bottom: 1px solid #e8e8e8;
-			padding: 10px;
+			border-bottom: 1px solid $shade;
 			width: 100%;
 			min-height: 57px;
+		}
+		
+		.user-module {
+			margin-top: 10px;
+			margin-left: 10px;
+			width: 240px;
+			height: 100vh;
+			position: fixed;
+			
 			#user-form {
-				width: 95%;
-				margin: 0 auto;
-				text-align: center;
 				#display-name {
 					position: relative;
 					top: 2px;
-					max-width: 250px;
+					max-width: 175px;
 					display: inline-block;
 				}
 				
 				.btn {
-					margin-left: 5px;
+					margin-left: 2px;
 				}
 			}
+			
+			.user-list {
+				li {
+					padding: 10px;
+					border-bottom: 1px solid $shade;
+				}
+				
+			}
 		}
+	
+		
 		.wrapper {
+			display: none;
 			height: 90vh;
 			width: 100%;
-			max-width: 1024px;
+			max-width: 920px;
 			position: relative;
 			left: 50%;
 			transform: translateX(-50%);
+			margin-top: 10px;
 			
 			.message-wrapper {
 				overflow: auto;
-				max-height: 80vh;
-				
+				height: 80vh;
+				border: 1px solid $shade;
+				border-bottom: none;
 				#messages {
-					padding-top: 20px;
-					padding-bottom: 20px;
+					padding: 20px;
 					li {
 						padding: 5px 10px;
+						
+						span {
+							font-weight: 900;
+						}
 					}
 					
 					li:nth-of-type(odd) {
@@ -85,10 +108,11 @@ html {
 				width: 100%;
 				position: fixed;
 				bottom: 0;
+				border: 1px solid #e8e8e8;
 				background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,0.75) 50%,rgba(255,255,255,1) 100%);
-				padding-top: 50px;
+				padding-top: 20px;
 				padding-bottom: 20px;
-				margin-left: 10px;
+				padding-left: 10px;
 				#messagebox {
 					width: 90%;
 					margin-right: 1%;

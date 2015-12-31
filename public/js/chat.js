@@ -5,18 +5,36 @@ var socket = io.connect();
 var $userModule = $('.user-module');
 var $userForm = $('#user-form');
 var $userName = $('#display-name');
+var $userList = $('.user-list ul');
 
 //messaging
+var $wrapper = $('.wrapper');
 var $form = $('.enter-message');
 var $messages = $('#messages');
 var $input = $('#messagebox');
 
 $userForm.submit(function(e) {
 	e.preventDefault();
-	socket.emit('enter user', $userName.val(), function(username) {
-		
+	socket.emit('enter user', $userName.val(), function(data) {
+		if (data) {
+			$wrapper.show();
+			$userForm.hide();
+
+		} else {
+			$userName.attr("placeholder", "Display name taken. Try again.");
+		}
 	});
 	$userName.val('');
+});
+
+socket.on("usernames", function(data) {
+	var users = '';
+	var len = data.length;
+	for ( var i = 0; i < len; i++ ) {
+		users += '<li class="user">' + data[i] + '</li>';
+	} 
+	
+	$userList.html(users);
 });
 
 $form.submit(function(e){
@@ -28,19 +46,14 @@ $form.submit(function(e){
 });
 
 socket.on('chat message', function(msg){
-	$messages.append($('<li>').text(msg));
+	$messages.append($('<li>').html("<span>" + msg.user + "</span>: " + msg.text));
 });
 
-socket.on('connect', function(msg) {
+socket.on('connect', function(data) {
 	$messages.append($('<li class="user-status connect">').text("A user has connected"));
-	notifier.add({
-    title         : 'User connected!',
-    imgSrc        : 'img/thumb.jpg',
-    text          : 'An anonymous user has connected to the chat.',
-    autoRemoveMs  : 2000
-});
+
 });
 
 socket.on('disconnect', function(msg) {
 	$messages.append($('<li class="user-status disconnect">').text("A user has disconnected"));
-})
+});
