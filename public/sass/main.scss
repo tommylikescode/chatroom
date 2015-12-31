@@ -1,7 +1,15 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,900italic,900,700italic,700,500italic,500,400italic,300italic,100,100italic,300);
+$normal: 'Roboto', 'Helvetica', Arial, sans-serif;
 
+@mixin font($type : $normal, $size : 1em, $weight : 400, $color : #000) {
+	color: $color;
+	font-family: $type;
+	font-size: $size; 
+	font-weight: $weight;
+}
 
 html {
 	body {
-		background-color: red;
+		@include font();
 	}
 }
