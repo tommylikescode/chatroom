@@ -18,6 +18,7 @@ html {
 		@include font();
 		background-color: #fafafa;
 		height: 100vh;
+		
 		.wrapper {
 			height: 100vh;
 			width: 100%;
@@ -26,34 +27,42 @@ html {
 			left: 50%;
 			transform: translateX(-50%);
 			
-			#messages {
-				padding-top: 20px;
-				padding-bottom: 20px;
-				li {
-					padding: 5px 10px;
-				}
+			.message-wrapper {
+				overflow: auto;
+				max-height: 85vh;
 				
-				li:nth-of-type(odd) {
-					background-color: #f2f2f2;
-				}
-				.user-status {
-					color: #ffffff;
-					font-weight: 700;
-				}
-				
-				li.user-status.connect {
-					background-color: $green;
-				}
-				
-				li.user-status.disconnect {
-					background-color: $red;
+				#messages {
+					height: 100vh;
+					padding-top: 20px;
+					padding-bottom: 20px;
+					li {
+						padding: 5px 10px;
+					}
+					
+					li:nth-of-type(odd) {
+						background-color: #f2f2f2;
+					}
+					.user-status {
+						color: #ffffff;
+						font-weight: 700;
+					}
+					
+					li.user-status.connect {
+						background-color: $green;
+					}
+					
+					li.user-status.disconnect {
+						background-color: $red;
+					}
 				}
 			}
 			
-			form {
+			.enter-message {
 				width: 100%;
 				position: fixed;
 				bottom: 0;
+				background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,0.75) 50%,rgba(255,255,255,1) 100%);
+				padding-top: 50px;
 				padding-bottom: 20px;
 				#messagebox {
 					width: 90%;
@@ -74,7 +83,7 @@ html {
 	html {
 		body {
 			.wrapper {
-				form {
+				.enter-message {
 					#messagebox {
 						width: 80%;
 					}

@@ -4,19 +4,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Emphasis chat application</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <link rel="stylesheet" href="css/spark.min.css">
+    <script src="js/spark.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
+    <div class="notifications" id="exampleNotifications"></div>
     <div class="wrapper">
-        <ul id="messages"></ul>
-        <form action="">
+        <div class="user-module">
+          <form action="" id="user-form">
+            <input type="text" id="display-name"/>
+            <button class="btn btn-default">Set display name</button>
+          </form>
+        </div>
+        <div class="message-wrapper">
+          <ul id="messages"></ul>
+        </div>
+        <form action="" class="enter-message">
             <input id="messagebox" class="form-control" placeholder="Send a message..." autocomplete="off" />
-          <button id="send" class="btn btn-default">Send</button>
+          <button id="send exampleModal-close" class="btn btn-default">Send</button>
         </form>
     </div>
+    <div id="user-list"></div>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="js/script.js"></script>
     <script src="js/chat.js"></script>
   </body>
 </html>

@@ -13,37 +13,43 @@ html body {
     position: relative;
     left: 50%;
     transform: translateX(-50%); }
-    html body .wrapper #messages {
-      padding-top: 20px;
-      padding-bottom: 20px; }
-      html body .wrapper #messages li {
-        padding: 5px 10px; }
-      html body .wrapper #messages li:nth-of-type(odd) {
-        background-color: #f2f2f2; }
-      html body .wrapper #messages .user-status {
-        color: #ffffff;
-        font-weight: 700; }
-      html body .wrapper #messages li.user-status.connect {
-        background-color: #59CB59; }
-      html body .wrapper #messages li.user-status.disconnect {
-        background-color: #C24977; }
-    html body .wrapper form {
+    html body .wrapper .message-wrapper {
+      overflow: auto;
+      max-height: 85vh; }
+      html body .wrapper .message-wrapper #messages {
+        height: 100vh;
+        padding-top: 20px;
+        padding-bottom: 20px; }
+        html body .wrapper .message-wrapper #messages li {
+          padding: 5px 10px; }
+        html body .wrapper .message-wrapper #messages li:nth-of-type(odd) {
+          background-color: #f2f2f2; }
+        html body .wrapper .message-wrapper #messages .user-status {
+          color: #ffffff;
+          font-weight: 700; }
+        html body .wrapper .message-wrapper #messages li.user-status.connect {
+          background-color: #59CB59; }
+        html body .wrapper .message-wrapper #messages li.user-status.disconnect {
+          background-color: #C24977; }
+    html body .wrapper .enter-message {
       width: 100%;
       position: fixed;
       bottom: 0;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.75) 50%, white 100%);
+      padding-top: 50px;
       padding-bottom: 20px; }
-      html body .wrapper form #messagebox {
+      html body .wrapper .enter-message #messagebox {
         width: 90%;
         margin-right: 1%;
         float: left; }
-      html body .wrapper form #send {
+      html body .wrapper .enter-message #send {
         width: 9%;
         display: inline-block; }
 
 @media screen and (max-width: 640px) {
-  html body .wrapper form #messagebox {
+  html body .wrapper .enter-message #messagebox {
     width: 80%; }
-  html body .wrapper form #send {
+  html body .wrapper .enter-message #send {
     width: 19%; } }
 
 /*# sourceMappingURL=main.css.map */
