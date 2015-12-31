@@ -14,9 +14,9 @@ socket.on('chat message', function(msg){
 });
 
 socket.on('connect', function(msg) {
-	$messages.append($('<li class="user-status">').text("A user has connected"));
+	$messages.append($('<li class="user-status connect">').text("A user has connected"));
 });
 
 socket.on('disconnect', function(msg) {
-	$messages.append($('<li class="user-status">').text("A user has disconnected"));
+	$messages.append($('<li class="user-status disconnect">').text("A user has disconnected"));
 })

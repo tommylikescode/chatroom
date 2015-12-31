@@ -4,6 +4,7 @@ $normal: 'Roboto', 'Helvetica', Arial, sans-serif;
 
 //colors 
 $green : #59CB59;
+$red : #C24977;
 
 @mixin font($type : $normal, $size : 1.3em, $weight : 400, $color : #000) {
 	color: $color;
@@ -31,9 +32,21 @@ html {
 				li {
 					padding: 5px 10px;
 				}
+				
+				li:nth-of-type(odd) {
+					background-color: #f2f2f2;
+				}
 				.user-status {
-					background-color: #59CB59;
 					color: #ffffff;
+					font-weight: 700;
+				}
+				
+				li.user-status.connect {
+					background-color: $green;
+				}
+				
+				li.user-status.disconnect {
+					background-color: $red;
 				}
 			}
 			
