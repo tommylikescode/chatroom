@@ -2,7 +2,42 @@
 html body {
   color: #000;
   font-family: "Roboto", "Helvetica", Arial, sans-serif;
-  font-size: 1em;
-  font-weight: 400; }
+  font-size: 1.3em;
+  font-weight: 400;
+  background-color: #fafafa;
+  height: 100vh; }
+  html body .wrapper {
+    height: 100vh;
+    width: 100%;
+    max-width: 1024px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%); }
+    html body .wrapper #messages {
+      padding-top: 20px;
+      padding-bottom: 20px; }
+      html body .wrapper #messages li {
+        padding: 5px 10px; }
+      html body .wrapper #messages .user-status {
+        background-color: #59CB59;
+        color: #ffffff; }
+    html body .wrapper form {
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+      padding-bottom: 20px; }
+      html body .wrapper form #messagebox {
+        width: 90%;
+        margin-right: 1%;
+        float: left; }
+      html body .wrapper form #send {
+        width: 9%;
+        display: inline-block; }
+
+@media screen and (max-width: 640px) {
+  html body .wrapper form #messagebox {
+    width: 80%; }
+  html body .wrapper form #send {
+    width: 19%; } }
 
 /*# sourceMappingURL=main.css.map */

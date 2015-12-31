@@ -8,11 +8,12 @@
     <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
-    <div class="container-fluid">
-      <ul id="messages"></ul>
-      <form action="">
-        <input id="message-box" autocomplete="off" /><button>Send</button>
-      </form>
+    <div class="wrapper">
+        <ul id="messages"></ul>
+        <form action="">
+            <input id="messagebox" class="form-control" placeholder="Send a message..." autocomplete="off" />
+          <button id="send" class="btn btn-default">Send</button>
+        </form>
     </div>
     <script src="/socket.io/socket.io.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
