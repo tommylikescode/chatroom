@@ -13,7 +13,46 @@ html body {
     border-bottom: 1px solid #e8e8e8;
     width: 100%;
     min-height: 57px; }
+    html body header nav {
+      padding: 12px;
+      height: 100%; }
+      html body header nav .menu-icon {
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+        color: #555555;
+        width: 25px;
+        height: 25px;
+        cursor: pointer;
+        cursor: hand; }
+        html body header nav .menu-icon span {
+          -webkit-transition: all 0.3s ease-in-out;
+          -moz-transition: all 0.3s ease-in-out;
+          -o-transition: all 0.3s ease-in-out;
+          transition: all 0.3s ease-in-out;
+          position: relative;
+          display: block;
+          width: 25px;
+          height: 3px;
+          background-color: #555555;
+          margin-top: 5px; }
+      html body header nav .menu-icon.active span {
+        width: 15px; }
+      html body header nav .menu-icon.active span:first-child {
+        transform: rotate(-45deg);
+        top: 3.5px; }
+      html body header nav .menu-icon.active span:nth-child(2) {
+        width: 25px;
+        left: 3.5px; }
+      html body header nav .menu-icon.active span:last-child {
+        transform: rotate(45deg);
+        top: -3.5px; }
   html body .user-module {
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     margin-top: 10px;
     margin-left: 10px;
     width: 240px;
@@ -26,9 +65,19 @@ html body {
       display: inline-block; }
     html body .user-module #user-form .btn {
       margin-left: 2px; }
-    html body .user-module .user-list li {
+    html body .user-module .user-list h2 {
+      color: #555555;
+      font-family: "Roboto", "Helvetica", Arial, sans-serif;
+      font-size: 1em;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-left: 10px; }
+    html body .user-module .user-list ul li {
       padding: 10px;
       border-bottom: 1px solid #e8e8e8; }
+  html body .user-module.active {
+    transform: translateX(-100%); }
   html body .wrapper {
     display: none;
     height: 90vh;
@@ -69,7 +118,7 @@ html body {
       padding-left: 10px; }
       html body .wrapper .enter-message #messagebox {
         width: 90%;
-        margin-right: 1%;
+        margin-right: 2px;
         float: left; }
       html body .wrapper .enter-message #send {
         width: 9%;

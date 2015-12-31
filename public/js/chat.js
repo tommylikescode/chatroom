@@ -1,6 +1,9 @@
 //initialization
 var socket = io.connect();
 
+//nav 
+var $menuIcon = $('nav .menu-icon');
+
 //user module
 var $userModule = $('.user-module');
 var $userForm = $('#user-form');
@@ -12,6 +15,11 @@ var $wrapper = $('.wrapper');
 var $form = $('.enter-message');
 var $messages = $('#messages');
 var $input = $('#messagebox');
+
+$menuIcon.on("click", function() {
+	$userModule.toggleClass("active");
+	$(this).toggleClass("active");
+});
 
 $userForm.submit(function(e) {
 	e.preventDefault();
@@ -28,6 +36,7 @@ $userForm.submit(function(e) {
 });
 
 socket.on("usernames", function(data) {
+	$userList.html('');
 	var users = '';
 	var len = data.length;
 	for ( var i = 0; i < len; i++ ) {

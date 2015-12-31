@@ -11,9 +11,15 @@
     <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
-    <div class="notifications" id="exampleNotifications"></div>
+
     <header>
-      <nav></nav>
+      <nav>
+        <div class="menu-icon active">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+       </nav>
     </header>
     <div class="user-module">
       <form action="" id="user-form">
@@ -21,7 +27,10 @@
         <button class="btn btn-default">Set</button>
       </form>
       <div class="user-list">
-        <ul></ul>
+        <h2>Users</h2>
+        <ul>
+          <li>No users in the chat</li>
+        </ul>
       </div>
     </div>
     
@@ -31,12 +40,11 @@
         </div>
         <form action="" class="enter-message">
             <input id="messagebox" class="form-control" placeholder="Send a message..." autocomplete="off" />
-          <button id="send exampleModal-close" class="btn btn-default">Send</button>
+          <button id="send" class="btn btn-default">Send</button>
         </form>
     </div>
     <div id="user-list"></div>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="js/script.js"></script>
     <script src="js/chat.js"></script>
   </body>
 </html>
