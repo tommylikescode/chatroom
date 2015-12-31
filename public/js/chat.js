@@ -21,7 +21,9 @@ $userForm.submit(function(e) {
 
 $form.submit(function(e){
 	e.preventDefault();
-	socket.emit('chat message', $input.val());
+	if ($input.val()) {
+		socket.emit('chat message', $input.val());
+	}
 	$input.val('');
 });
 
