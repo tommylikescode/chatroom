@@ -20,15 +20,23 @@ io.on('connection', function(socket){
   function updateUsernames() {
     io.sockets.emit('usernames', names);
   }
+  
+  socket.on('connect', function(data){
+    io.emit('connect', data);
+  });
   socket.on('disconnect', function(msg){
     if (!socket.username) return;
     names.splice(names.indexOf(socket.username), 1);
     updateUsernames();
     io.emit('disconnect', msg);
   });
-  socket.on('chat message', function(msg){
-    io.emit('chat message', { text : msg, user : socket.username });
+  
+  
+  socket.on('message', function(msg){
+    io.emit('message', { text : msg, user : socket.username });
   });
+  
+  
   socket.on('enter user', function(data, callback) {
     if ( names.indexOf(data) != -1 ) {
       callback(false);
@@ -40,11 +48,8 @@ io.on('connection', function(socket){
       updateUsernames();
     }
   });
-  
-   socket.on('connect', function(data){
-    io.emit('connect', data);
-  });
-});
+ 
+}); 
 
 http.listen(port, function(){
   console.log('listening on port :3000');

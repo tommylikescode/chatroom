@@ -13,8 +13,10 @@ var $userList = $('.user-list ul');
 //messaging
 var $wrapper = $('.wrapper');
 var $form = $('.enter-message');
+var $mesWrapper = $('.message-wrapper');
 var $messages = $('#messages');
 var $input = $('#messagebox');
+
 
 $menuIcon.on("click", function() {
 	$userModule.toggleClass("active");
@@ -49,20 +51,19 @@ socket.on("usernames", function(data) {
 $form.submit(function(e){
 	e.preventDefault();
 	if ($input.val()) {
-		socket.emit('chat message', $input.val());
+		socket.emit('message', $input.val());
 	}
 	$input.val('');
 });
 
-socket.on('chat message', function(msg){
-	$messages.append($('<li>').html("<span>" + msg.user + "</span>: " + msg.text));
+socket.on('message', function(msg){
+	$messages.append($('<div class="clearfix">').html("<li><span>" + msg.user + "</span>: " + msg.text + "</li>"));
 });
 
 socket.on('connect', function(data) {
-	$messages.append($('<li class="user-status connect">').text("A user has connected"));
-
+	$messages.append($('<div class="clearfix">').html('<li class="user-status connect">A user has connected</li>'));
 });
 
 socket.on('disconnect', function(msg) {
-	$messages.append($('<li class="user-status disconnect">').text("A user has disconnected"));
+	$messages.append($('<div class="clearfix">').html('<li class="user-status disconnect">A user has disconnected</li>'));
 });

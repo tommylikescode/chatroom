@@ -26,6 +26,11 @@ html {
 		background-color: #fafafa;
 		height: 100vh;
 		
+		.clearfix:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
 		.btn:hover, .btn:active, .btn:focus {
 			outline: none;
 		}
@@ -137,28 +142,47 @@ html {
 				border-bottom: none;
 				#messages {
 					padding: 20px;
-					li {
-						padding: 5px 10px;
+					
+					div {
+						width: 100%;
+						li {
+							background-color: $green; 
+							color: #fff;
+							display: block;
+							width: 45%;
+							padding: 10px 10px;
+							margin: 10px 0;
+							border-radius: 15px;
+							
+							span {
+								font-weight: 900;
+							}
+						}
 						
-						span {
-							font-weight: 900;
+						li.user-status {
+							font-weight: 700;
+							border-radius: 2px;
+							float: none;
+							width: 100%;
+						}
+						
+						li.user-status.connect {
+							color: #fff;
+							background-color: $green;
+						}
+						
+						li.user-status.disconnect {
+							color: #fff;
+							background-color: $red;
 						}
 					}
 					
-					li:nth-of-type(odd) {
-						background-color: #f2f2f2;
-					}
-					.user-status {
-						color: #ffffff;
-						font-weight: 700;
-					}
-					
-					li.user-status.connect {
-						background-color: $green;
-					}
-					
-					li.user-status.disconnect {
-						background-color: $red;
+					div:nth-of-type(odd) {
+						li {
+							float: right;
+							background-color: #f2f2f2;
+							color: #000;
+						}
 					}
 				}
 			}

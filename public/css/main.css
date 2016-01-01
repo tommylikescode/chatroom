@@ -6,6 +6,10 @@ html body {
   font-weight: 400;
   background-color: #fafafa;
   height: 100vh; }
+  html body .clearfix:after {
+    content: "";
+    display: table;
+    clear: both; }
   html body .btn:hover, html body .btn:active, html body .btn:focus {
     outline: none; }
   html body header {
@@ -94,19 +98,33 @@ html body {
       border-bottom: none; }
       html body .wrapper .message-wrapper #messages {
         padding: 20px; }
-        html body .wrapper .message-wrapper #messages li {
-          padding: 5px 10px; }
-          html body .wrapper .message-wrapper #messages li span {
-            font-weight: 900; }
-        html body .wrapper .message-wrapper #messages li:nth-of-type(odd) {
-          background-color: #f2f2f2; }
-        html body .wrapper .message-wrapper #messages .user-status {
-          color: #ffffff;
-          font-weight: 700; }
-        html body .wrapper .message-wrapper #messages li.user-status.connect {
-          background-color: #59CB59; }
-        html body .wrapper .message-wrapper #messages li.user-status.disconnect {
-          background-color: #C24977; }
+        html body .wrapper .message-wrapper #messages div {
+          width: 100%; }
+          html body .wrapper .message-wrapper #messages div li {
+            background-color: #59CB59;
+            color: #fff;
+            display: block;
+            width: 45%;
+            padding: 10px 10px;
+            margin: 10px 0;
+            border-radius: 15px; }
+            html body .wrapper .message-wrapper #messages div li span {
+              font-weight: 900; }
+          html body .wrapper .message-wrapper #messages div li.user-status {
+            font-weight: 700;
+            border-radius: 2px;
+            float: none;
+            width: 100%; }
+          html body .wrapper .message-wrapper #messages div li.user-status.connect {
+            color: #fff;
+            background-color: #59CB59; }
+          html body .wrapper .message-wrapper #messages div li.user-status.disconnect {
+            color: #fff;
+            background-color: #C24977; }
+        html body .wrapper .message-wrapper #messages div:nth-of-type(odd) li {
+          float: right;
+          background-color: #f2f2f2;
+          color: #000; }
     html body .wrapper .enter-message {
       width: 100%;
       position: fixed;
