@@ -3,9 +3,11 @@ app = express(),
 http = require('http').createServer(app),
 path = require('path'),
 io = require('socket.io')(http),
+
+//if no specified port, use default port :3000
 port = process.env.port || 3000;
 
-//exisiting usernames
+//existing usernames
 var users = {};
 
 //link to client
@@ -17,15 +19,23 @@ app.get('/', function(req, res){
 });
 
 io.on('connection', function(socket){
+  
+  //updates usernames to users object
   function updateUsernames() {
     io.sockets.emit('usernames', Object.keys(users));
   }
+  
+  //disconnect event
+  //if username doesn't exist, do nothing
+  //else delete username and update usernames object
   socket.on('disconnect', function(msg){
     if (!socket.username) return;
     delete users[socket.username];
     updateUsernames();
     io.emit('disconnect', msg);
   });
+  
+  //send message event
   socket.on('message', function(msg){
     var msgString = msg.trim();
     if (msgString.substr(0, 4) === "/pm ") {
@@ -36,6 +46,11 @@ io.on('connection', function(socket){
     }
     
   });
+  
+  //add a user event
+  //if usernames is not in existing username object :
+    //username is key, and socket as value
+    //update the usernames object
   socket.on('enter user', function(data, callback) {
     if ( data in users ) {
       callback(false);
@@ -48,11 +63,13 @@ io.on('connection', function(socket){
     }
   });
   
+//connect event
    socket.on('connect', function(data){
     io.emit('connect', data);
   });
 });
 
+//listen to default port
 http.listen(port, function(){
   console.log('listening on port :3000');
 });
