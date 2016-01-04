@@ -21,13 +21,16 @@ $menuIcon.on("click", function() {
 	$(this).toggleClass("active");
 });
 
+function promptLogin() {
+	$wrapper.show();
+	$userForm.hide();
+}
+
 $userForm.submit(function(e) {
 	e.preventDefault();
 	socket.emit('enter user', $userName.val(), function(data) {
 		if (data) {
-			$wrapper.show();
-			$userForm.hide();
-
+			promptLogin();
 		} else {
 			$userName.attr("placeholder", "Display name taken. Try again.");
 		}
@@ -49,12 +52,12 @@ socket.on("usernames", function(data) {
 $form.submit(function(e){
 	e.preventDefault();
 	if ($input.val()) {
-		socket.emit('chat message', $input.val());
+		socket.emit('message', $input.val());
 	}
 	$input.val('');
 });
 
-socket.on('chat message', function(msg){
+socket.on('send message', function(msg){
 	$messages.append($('<li>').html("<span>" + msg.user + "</span>: " + msg.text));
 });
 
@@ -65,4 +68,5 @@ socket.on('connect', function(data) {
 
 socket.on('disconnect', function(msg) {
 	$messages.append($('<li class="user-status disconnect">').text("A user has disconnected"));
+	promptLogin();
 });

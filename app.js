@@ -6,9 +6,9 @@ io = require('socket.io')(http),
 port = process.env.port || 3000;
 
 //exisiting usernames
-var names = [];
+var users = {};
 
-//link to stylesheet
+//link to client
 app.use(express.static(path.join(__dirname, 'public')));
 
 //get request for index
@@ -18,25 +18,32 @@ app.get('/', function(req, res){
 
 io.on('connection', function(socket){
   function updateUsernames() {
-    io.sockets.emit('usernames', names);
+    io.sockets.emit('usernames', Object.keys(users));
   }
   socket.on('disconnect', function(msg){
     if (!socket.username) return;
-    names.splice(names.indexOf(socket.username), 1);
+    delete users[socket.username];
     updateUsernames();
     io.emit('disconnect', msg);
   });
-  socket.on('chat message', function(msg){
-    io.emit('chat message', { text : msg, user : socket.username });
+  socket.on('message', function(msg){
+    var msgString = msg.trim();
+    if (msgString.substr(0, 4) === "/pm ") {
+      msgString = msgString.substr(4);
+      console.log("Private message");
+    } else {
+      io.emit('send message', { text : msg, user : socket.username });
+    }
+    
   });
   socket.on('enter user', function(data, callback) {
-    if ( names.indexOf(data) != -1 ) {
+    if ( data in users ) {
       callback(false);
     } 
     else {
       callback(true);
       socket.username = data;
-      names.push(socket.username);
+      users[socket.username] = socket;
       updateUsernames();
     }
   });

@@ -21,43 +21,31 @@ html body {
         -moz-transition: all 0.3s ease-in-out;
         -o-transition: all 0.3s ease-in-out;
         transition: all 0.3s ease-in-out;
-        color: #555555;
-        width: 25px;
-        height: 25px;
+        border: 1px solid #e8e8e8;
+        border-radius: 2px;
+        width: 32px;
         cursor: pointer;
         cursor: hand; }
-        html body header nav .menu-icon span {
-          -webkit-transition: all 0.3s ease-in-out;
-          -moz-transition: all 0.3s ease-in-out;
-          -o-transition: all 0.3s ease-in-out;
-          transition: all 0.3s ease-in-out;
-          position: relative;
-          display: block;
-          width: 25px;
-          height: 3px;
-          background-color: #555555;
-          margin-top: 5px; }
-      html body header nav .menu-icon.active span {
-        width: 15px; }
-      html body header nav .menu-icon.active span:first-child {
-        transform: rotate(-45deg);
-        top: 3.5px; }
-      html body header nav .menu-icon.active span:nth-child(2) {
-        width: 25px;
-        left: 3.5px; }
-      html body header nav .menu-icon.active span:last-child {
-        transform: rotate(45deg);
-        top: -3.5px; }
+        html body header nav .menu-icon .fa-bars {
+          font-size: 18px;
+          padding: 5px 7px;
+          color: #555555; }
+          html body header nav .menu-icon .fa-bars:hover {
+            color: #2f2f2f; }
   html body .user-module {
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
-    margin-top: 10px;
-    margin-left: 10px;
-    width: 240px;
+    background-color: #fff;
+    z-index: 999;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 250px;
     height: 100vh;
-    position: fixed; }
+    position: fixed;
+    border-right: 1px solid #e8e8e8; }
     html body .user-module #user-form #display-name {
       position: relative;
       top: 2px;

@@ -41,52 +41,37 @@ html {
 				height: 100%;
 				.menu-icon {
 					@include transition();
-					color: #555555;
-					width:  25px;
-					height: 25px;
+					border: 1px solid $shade;
+					border-radius: 2px;
+					width: 32px;
 					cursor: pointer;
 					cursor: hand;
 					
-					span {
-						@include transition();
-						position: relative;
-						display: block;
-						width: 25px;
-						height: 3px;
-						background-color: #555555;
-						margin-top: 5px;
+					.fa-bars {
+						font-size: 18px;
+						padding: 5px 7px;
+						color: #555555;
 						
+						&:hover {
+							color: darken(#555555, 15%);
+						}
 					}
-				}
-				
-				.menu-icon.active span {
-					width: 15px;
-				}
-				
-				.menu-icon.active span:first-child {
-					transform: rotate(-45deg);
-					top: 3.5px;
-				}
-				
-				.menu-icon.active span:nth-child(2) {
-					width: 25px;
-					left: 3.5px;
-				}
-				
-				.menu-icon.active span:last-child {
-					transform: rotate(45deg);
-					top: -3.5px;
+					
 				}
 			}
 		}
 		
 		.user-module {
 			@include transition();
-			margin-top: 10px;
-			margin-left: 10px;
-			width: 240px;
+			background-color: #fff;
+			z-index: 999;
+			padding-top: 10px;
+			padding-left: 10px;
+			padding-right: 10px;
+			width: 250px;
 			height: 100vh;
 			position: fixed;
+			border-right: 1px solid $shade;
 			
 			#user-form {
 				#display-name {
