@@ -10,7 +10,7 @@ port = process.env.port || 3000;
 //existing usernames
 var users = {};
 
-//link to client
+//link to client folder /public
 app.use(express.static(path.join(__dirname, 'public')));
 
 //get request for index
