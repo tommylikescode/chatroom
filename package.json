@@ -1,0 +1,25 @@
+{
+  "name": "emphasis",
+  "version": "1.0.0",
+  "description": "A messaging and task application",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/brandonfujii/emphasize.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brandonfujii/emphasize/issues"
+  },
+  "homepage": "https://github.com/brandonfujii/emphasize#readme",
+  "dependencies": {
+    "ejs": "^2.3.4",
+    "express": "^4.13.3",
+    "passport": "^0.3.2",
+    "socket.io": "0.9.0"
+  }
+}

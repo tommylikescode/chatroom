@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Emphasis chat application</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <link rel="stylesheet" href="css/spark.min.css">
+    <script src="js/spark.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+
+    <header>
+      <nav>
+        <div class="menu-icon active">
+          <i class="fa fa-bars"></i>
+        </div>
+       </nav>
+    </header>
+    <div class="user-module">
+      <form action="" id="user-form">
+        <input type="text" class="form-control" id="display-name" placeholder="Set display name"/>
+        <button class="btn btn-default">Set</button>
+      </form>
+      <div class="user-list">
+        <h2>Users</h2>
+        <ul>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="wrapper">
+        <div class="message-wrapper">
+          <ul id="messages"></ul>
+        </div>
+        <form action="" class="enter-message">
+            <input id="messagebox" class="form-control" placeholder="Send a message..." autocomplete="off" />
+          <button id="send" class="btn btn-default">Send</button>
+        </form>
+    </div>
+    <div id="user-list"></div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/chat.js"></script>
+  </body>
+</html>
